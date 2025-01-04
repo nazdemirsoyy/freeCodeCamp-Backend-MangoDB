@@ -1,7 +1,40 @@
 require('dotenv').config();
 
+const mongoose = require('mongoose');
 
-let Person;
+const uri = 'mongodb://nazdemirsoyy:L3tjxRXldmq9462y@cluster0-shard-00-01.wtp9e.mongodb.net:27017,cluster0-shard-00-00.wtp9e.mongodb.net:27017,cluster0-shard-00-02.wtp9e.mongodb.net:27017/?authSource=admin&replicaSet=atlas-zabhwm-shard-0&retryWrites=true&w=majority&appName=Cluster0&ssl=true';
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,           
+  useUnifiedTopology: true,        
+  writeConcern: {                  
+    w: 'majority',
+    j: true
+  }
+}).then(() => {
+  console.log('Connected to MongoDB');
+
+}).catch((error) => {
+  console.error('Error connecting to MongoDB:', error);
+});
+
+// let Person;
+
+const personSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  age: Number,
+  favoriteFoods: [String]
+});
+
+// Create the model
+const Person = mongoose.model('Person', personSchema);
+
+// Export the model
+module.exports.PersonModel = Person;
+
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
