@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 
 
-mongoose.connect(uri, {
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,           
   useUnifiedTopology: true,        
   writeConcern: {                  
