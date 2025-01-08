@@ -2,10 +2,6 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 
-// const uri = 'mongodb://nazdemirsoyy:L3tjxRXldmq9462y@cluster0-shard-00-01.wtp9e.mongodb.net:27017,cluster0-shard-00-00.wtp9e.mongodb.net:27017,cluster0-shard-00-02.wtp9e.mongodb.net:27017/?authSource=admin&replicaSet=atlas-zabhwm-shard-0&retryWrites=true&w=majority&appName=Cluster0&ssl=true';
-
-const uri = "mongodb+srv://nazdemirsoyy:L3tjxRXldmq9462y@cluster0.wtp9e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
 
 
 mongoose.connect(uri, {
